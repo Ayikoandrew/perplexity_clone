@@ -11,7 +11,7 @@ class SearchService:
     async def web_seach(self, query: str):
         try:
             results = []
-            response = tavily_client.search(query=query, max_results=3)
+            response = tavily_client.search(query=query, max_results=10)
             search_result = response.get("results", [])
 
             for result in search_result:
@@ -28,4 +28,5 @@ class SearchService:
 
             return results
         except Exception as e:
+
             print(e)
